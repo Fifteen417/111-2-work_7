@@ -101,19 +101,6 @@ namespace work_7
             watch_txt.Text = sw.Elapsed.ToString("hh':'mm':'ss':'fff");    // 顯示碼表時間
         }
 
-        // timerCountDown_tick：每一秒執行一次
-        private void timerCountDown_tick(object sender, EventArgs e)
-        {
-            cdwatch_txt.Text = ts.ToString("hh':'mm':'ss");    // 顯示時間
-            ts = ts.Subtract(TimeSpan.FromSeconds(1));          // 把ts時間減掉一秒
-
-            if (cdwatch_txt.Text == "00:00:00")
-            {
-                cdsound_me.LoadedBehavior = MediaState.Play; // 播放鬧鐘聲音
-                timerCountDown.Stop();                        // 停止鬧鐘計時器
-            }
-        }
-
         private void setAlert_btn_click(object sender, RoutedEventArgs e)
         {
             timerAlert.Start(); // 啟動鬧鐘計時器
@@ -196,6 +183,19 @@ namespace work_7
             {
                 watchlog_txt.Text += String.Format("第 {0} 筆紀錄：{1}", i.ToString(), StopWatchLog[i - 1] + "\n");
                 i--;
+            }
+        }
+
+        // timerCountDown_tick：每一秒執行一次
+        private void timerCountDown_tick(object sender, EventArgs e)
+        {
+            cdwatch_txt.Text = ts.ToString("hh':'mm':'ss");    // 顯示時間
+            ts = ts.Subtract(TimeSpan.FromSeconds(1));          // 把ts時間減掉一秒
+
+            if (cdwatch_txt.Text == "00:00:00")
+            {
+                cdsound_me.LoadedBehavior = MediaState.Play; // 播放鬧鐘聲音
+                timerCountDown.Stop();                        // 停止鬧鐘計時器
             }
         }
 

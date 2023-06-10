@@ -14,14 +14,18 @@
         <TabControl>
             <TabItem Header="Time">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="time_txt" HorizontalAlignment="Left" Height="155" Margin="39,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="720" VerticalContentAlignment="Center" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-                    <TextBox x:Name="date_txt" HorizontalAlignment="Left" Height="80" Margin="40,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="440" VerticalContentAlignment="Center" FontSize="48" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-                    <TextBox x:Name="week_txt" HorizontalAlignment="Left" Height="80" Margin="500,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" VerticalContentAlignment="Center" FontSize="48" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-                    <Button x:Name="setAlert_btn" Content="Set Alert" HorizontalAlignment="Left" Height="30" Margin="40,283,0,0" VerticalAlignment="Top" Width="99" FontSize="16" FontWeight="Bold" Click="setAlert_btn_click"/>
-                    <Button x:Name="cancelAlert_btn" Content="Cancel Alert" HorizontalAlignment="Left" Height="30" Margin="144,283,0,0" VerticalAlignment="Top" Width="99" FontSize="16" FontWeight="Bold"/>
-                    <ComboBox x:Name="hour_cmb" HorizontalAlignment="Left" Height="30" Margin="260,283,0,0" VerticalAlignment="Top" Width="81"/>
-                    <ComboBox x:Name="min_cmb" HorizontalAlignment="Left" Height="30" Margin="346,283,0,0" VerticalAlignment="Top" Width="81"/>
-                    <MediaElement x:Name="sound_me" HorizontalAlignment="Left" Height="125" Margin="605,283,0,0" VerticalAlignment="Top" Width="133" Source="/alert.wav" Volume="1"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="16*"/>
+                        <ColumnDefinition Width="83*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="time_txt" HorizontalAlignment="Left" Height="155" Margin="39,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="720" VerticalContentAlignment="Center" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="date_txt" HorizontalAlignment="Left" Height="80" Margin="40,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="440" VerticalContentAlignment="Center" FontSize="48" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="week_txt" HorizontalAlignment="Left" Height="80" Margin="372,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" VerticalContentAlignment="Center" FontSize="48" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.Column="1"/>
+                    <Button x:Name="setAlert_btn" Content="Set Alert" HorizontalAlignment="Left" Height="30" Margin="40,283,0,0" VerticalAlignment="Top" Width="99" FontSize="16" FontWeight="Bold" Click="setAlert_btn_click" Grid.ColumnSpan="2"/>
+                    <Button x:Name="cancelAlert_btn" Content="Cancel Alert" HorizontalAlignment="Left" Height="30" Margin="16,283,0,0" VerticalAlignment="Top" Width="99" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+                    <ComboBox x:Name="hour_cmb" HorizontalAlignment="Left" Height="30" Margin="132,283,0,0" VerticalAlignment="Top" Width="81" Grid.Column="1"/>
+                    <ComboBox x:Name="min_cmb" HorizontalAlignment="Left" Height="30" Margin="218,283,0,0" VerticalAlignment="Top" Width="81" Grid.Column="1"/>
+                    <MediaElement x:Name="sound_me" HorizontalAlignment="Left" Height="125" Margin="477,283,0,0" VerticalAlignment="Top" Width="133" Source="/alert.wav" Volume="1" Grid.Column="1"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Stopwatch">
@@ -54,7 +58,7 @@
                     <Button x:Name="cdstart_btn" Content="Start" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="57" Margin="37,219,0,0" VerticalAlignment="Top" Width="168" FontSize="24" FontWeight="Bold" Click="cdstart_btn_click"/>
                     <Button x:Name="cdpause_btn" Content="Pause" HorizontalAlignment="Left" Height="57" Margin="82,219,0,0" VerticalAlignment="Top" Width="168" Grid.Column="1" FontSize="24" FontWeight="Bold" Click="cdpause_btn_click"/>
                     <Button x:Name="cdstop_btn" Content="Stop" HorizontalAlignment="Left" Height="57" Margin="255,219,0,0" VerticalAlignment="Top" Width="168" Grid.Column="1" FontSize="24" FontWeight="Bold" Click="cdstop_btn_click"/>
-                    <MediaElement x:Name="cdsound_me" Grid.Column="1" HorizontalAlignment="Left" Height="157" Margin="468,219,0,0" VerticalAlignment="Top" Width="157"/>
+                    <MediaElement x:Name="cdsound_me" Grid.Column="1" HorizontalAlignment="Left" Height="157" Margin="468,219,0,0" VerticalAlignment="Top" Width="157" Source="/alert.wav" Volume="1"/>
                 </Grid>
             </TabItem>
         </TabControl>
