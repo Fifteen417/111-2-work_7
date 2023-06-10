@@ -7,14 +7,43 @@
         mc:Ignorable="d"
         Title="Clock" Height="450" Width="800" Icon="/clock.png" ResizeMode="NoResize">
     <Grid>
-        <TextBox x:Name="time_txt" HorizontalAlignment="Center" Height="155" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="720" VerticalContentAlignment="Center" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="date_txt" HorizontalAlignment="Left" Height="80" Margin="40,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="440" VerticalContentAlignment="Center" FontSize="48" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="week_txt" HorizontalAlignment="Left" Height="80" Margin="500,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" VerticalContentAlignment="Center" FontSize="48" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-        <Button x:Name="setAlert_btn" Content="Set Alert" HorizontalAlignment="Left" Height="30" Margin="40,265,0,0" VerticalAlignment="Top" Width="99" FontSize="16" FontWeight="Bold" Click="setAlert_btn_click"/>
-        <Button x:Name="cancelAlert_btn" Content="Cancel Alert" HorizontalAlignment="Left" Height="30" Margin="144,265,0,0" VerticalAlignment="Top" Width="99" FontSize="16" FontWeight="Bold"/>
-        <ComboBox x:Name="hour_cmb" HorizontalAlignment="Left" Height="30" Margin="260,265,0,0" VerticalAlignment="Top" Width="81"/>
-        <ComboBox x:Name="min_cmb" HorizontalAlignment="Left" Height="30" Margin="346,265,0,0" VerticalAlignment="Top" Width="81"/>
-        <MediaElement x:Name="sound_me" HorizontalAlignment="Left" Height="159" Margin="561,265,0,0" VerticalAlignment="Top" Width="177" Source="/alert.wav" Volume="1"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="399*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TabControl>
+            <TabItem Header="Time">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="time_txt" HorizontalAlignment="Left" Height="155" Margin="39,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="720" VerticalContentAlignment="Center" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="date_txt" HorizontalAlignment="Left" Height="80" Margin="40,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="440" VerticalContentAlignment="Center" FontSize="48" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="week_txt" HorizontalAlignment="Left" Height="80" Margin="500,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" VerticalContentAlignment="Center" FontSize="48" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                    <Button x:Name="setAlert_btn" Content="Set Alert" HorizontalAlignment="Left" Height="30" Margin="40,283,0,0" VerticalAlignment="Top" Width="99" FontSize="16" FontWeight="Bold" Click="setAlert_btn_click"/>
+                    <Button x:Name="cancelAlert_btn" Content="Cancel Alert" HorizontalAlignment="Left" Height="30" Margin="144,283,0,0" VerticalAlignment="Top" Width="99" FontSize="16" FontWeight="Bold"/>
+                    <ComboBox x:Name="hour_cmb" HorizontalAlignment="Left" Height="30" Margin="260,283,0,0" VerticalAlignment="Top" Width="81"/>
+                    <ComboBox x:Name="min_cmb" HorizontalAlignment="Left" Height="30" Margin="346,283,0,0" VerticalAlignment="Top" Width="81"/>
+                    <MediaElement x:Name="sound_me" HorizontalAlignment="Left" Height="125" Margin="605,283,0,0" VerticalAlignment="Top" Width="133" Source="/alert.wav" Volume="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Stopwatch">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="watch_txt" HorizontalAlignment="Left" Height="147" Margin="38,10,0,0" TextWrapping="Wrap" Text="00:00:00:000" VerticalAlignment="Top" Width="720" FontSize="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+                    <TextBox x:Name="watchlog_txt" HorizontalAlignment="Left" Height="207" Margin="38,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" FontSize="16"/>
+                    <Button x:Name="start_btn" Content="Start" HorizontalAlignment="Left" Height="57" Margin="337,0,0,0" VerticalAlignment="Center" Width="199" FontSize="24" FontWeight="Bold" Click="start_btn_click"/>
+                    <Button x:Name="pause_btn" Content="Pause" HorizontalAlignment="Left" Height="57" Margin="559,0,0,0" VerticalAlignment="Center" Width="199" RenderTransformOrigin="0.513,0.705" FontSize="24" FontWeight="Bold" VerticalContentAlignment="Center" Background="#FFFBF923" Click="pause_btn_click"/>
+                    <Button x:Name="note_btn" Content="Note" HorizontalAlignment="Left" Height="57" Margin="559,248,0,0" VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.513,0.705" FontSize="24" FontWeight="Bold" VerticalContentAlignment="Center" Click="note_btn_click"/>
+                    <Button x:Name="reset_btn" Content="Reset" HorizontalAlignment="Left" Height="57" Margin="337,248,0,0" VerticalAlignment="Top" Width="199" FontSize="24" FontWeight="Bold" Click="reset_btn_click"/>
+                    <Button x:Name="stop_btn" Content="Stop" HorizontalAlignment="Left" Height="57" Margin="337,323,0,0" VerticalAlignment="Top" Width="421" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Top" Background="#FFE54141" Foreground="White" Click="stop_btn_click"/>
+                </Grid>
+            </TabItem>
+            <TabItem HorizontalAlignment="Center" Height="20" Header="Countdown" VerticalAlignment="Top" Width="78" Margin="0,-1,0,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="16*"/>
+                        <ColumnDefinition Width="83*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
