@@ -1,0 +1,17 @@
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\bin\Debug\work_7.exe.config
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\bin\Debug\work_7.exe
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\bin\Debug\work_7.pdb
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\work_7.csproj.AssemblyReference.cache
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\work_7.csproj.SuggestedBindingRedirects.cache
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\MainWindow.g.cs
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\App.g.cs
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\work_7_Content.g.cs
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\work_7_MarkupCompile.cache
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\work_7_MarkupCompile.lref
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\MainWindow.baml
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\work_7.g.resources
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\work_7.Properties.Resources.resources
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\work_7.csproj.GenerateResource.cache
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\work_7.csproj.CoreCompileInputs.cache
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\work_7.exe
+C:\Users\vanne\Documents\111-2 視窗程式設計\作業\111-2-work_7\work_7\work_7\obj\Debug\work_7.pdb
