@@ -30,13 +30,15 @@ namespace work_7
         List<string> StopWatchLog = new List<string>();         // 碼表紀錄清單 
         DispatcherTimer timerStopWatch = new DispatcherTimer(); // 宣告一個「倒數計時」計時器
         Stopwatch sw = new Stopwatch();                         // 宣告一個碼表物件
+        DispatcherTimer timerCountDown = new DispatcherTimer();
+
+        bool isCountDownReset = true;                           // 用來紀錄是不是重新設定
+        TimeSpan ts;                                            // 宣告一個時間間隔變數
 
 
         public MainWindow()
         {
             InitializeComponent();
-
-            sound_me.LoadedBehavior = MediaState.Stop; // 將鬧鐘聲音預先停止
 
             // 建立小時的清單，數字範圍為00-23
             for (int i = 0; i <= 23; i++)
@@ -50,6 +52,15 @@ namespace work_7
             // 設定分鐘下拉選單的選單內容
             min_cmb.ItemsSource = minutes;
 
+            cdhour_cmb.ItemsSource = hours;      // 設定小時下拉選單的內容
+            cdmin_cmb.ItemsSource = minutes;     // 設定分鐘下拉選單的內容
+            cdsc_cmb.ItemsSource = minutes;  // 設定秒下拉選單的內容
+
+            cdhour_cmb.SelectedIndex = -1;       // 設定小時下拉選單選擇的項目為「不選擇任何選項」
+            cdmin_cmb.SelectedIndex = -1;        // 設定分鐘下拉選單選擇的項目為「不選擇任何選項」
+            cdsc_cmb.SelectedIndex = -1;     // 設定秒下拉選單選擇的項目為「不選擇任何選項」
+
+
             // 設定「時鐘」計時器  
             timer.Interval = TimeSpan.FromSeconds(1);   // 這個計時器設定每一個刻度為1秒
             timer.Tick += new EventHandler(timer_tick); // 每一個時間刻度設定一個小程序timer_tick
@@ -59,6 +70,11 @@ namespace work_7
             timerAlert.Tick += new EventHandler(timerAlert_tick); // 每一個時間刻度設定一個小程序timerAlert_tick
             timerStopWatch.Interval = TimeSpan.FromMilliseconds(1);        // 這個計時器設定每一個刻度為「1毫秒」
             timerStopWatch.Tick += new EventHandler(timerStopWatch_tick);  // 每一個時間刻度設定一個小程序timerStopWatch_tick
+            // 設定「倒數計時」計時器  
+            timerCountDown.Interval = TimeSpan.FromSeconds(1);             // 這個計時器設定每一個刻度為1秒
+            timerCountDown.Tick += new EventHandler(timerCountDown_tick);  // 每一個時間刻度設定一個小程序timerStopWatch_tick
+
+            sound_me.LoadedBehavior = MediaState.Stop; // 將鬧鐘聲音預先停止
         }
 
         private void timer_tick(object sender, EventArgs e)
@@ -83,6 +99,19 @@ namespace work_7
         private void timerStopWatch_tick(object sender, EventArgs e)
         {
             watch_txt.Text = sw.Elapsed.ToString("hh':'mm':'ss':'fff");    // 顯示碼表時間
+        }
+
+        // timerCountDown_tick：每一秒執行一次
+        private void timerCountDown_tick(object sender, EventArgs e)
+        {
+            cdwatch_txt.Text = ts.ToString("hh':'mm':'ss");    // 顯示時間
+            ts = ts.Subtract(TimeSpan.FromSeconds(1));          // 把ts時間減掉一秒
+
+            if (cdwatch_txt.Text == "00:00:00")
+            {
+                cdsound_me.LoadedBehavior = MediaState.Play; // 播放鬧鐘聲音
+                timerCountDown.Stop();                        // 停止鬧鐘計時器
+            }
         }
 
         private void setAlert_btn_click(object sender, RoutedEventArgs e)
@@ -168,6 +197,39 @@ namespace work_7
                 watchlog_txt.Text += String.Format("第 {0} 筆紀錄：{1}", i.ToString(), StopWatchLog[i - 1] + "\n");
                 i--;
             }
+        }
+
+        // 啟動倒數計時器按鍵
+        private void cdstart_btn_click(object sender, RoutedEventArgs e)
+        {
+            // 進行判斷，判斷是不是有按過停止計時器按鍵
+            if (isCountDownReset == true)
+            {
+                int Hour = int.Parse(cdhour_cmb.SelectedItem.ToString());
+                int Min = int.Parse(cdmin_cmb.SelectedItem.ToString());
+                int Sec = int.Parse(cdsc_cmb.SelectedItem.ToString());
+                ts = new TimeSpan(Hour, Min, Sec); // 設定倒數時間
+            }
+            isCountDownReset = false;
+            timerCountDown.Start();
+        }
+
+        // 暫停倒數計時器按鍵
+        private void cdpause_btn_click(object sender, RoutedEventArgs e)
+        {
+            timerCountDown.Stop();
+        }
+
+        // 停止計時器按鍵
+        private void cdstop_btn_click(object sender, RoutedEventArgs e)
+        {
+            cdsound_me.LoadedBehavior = MediaState.Stop; // 關閉鬧鐘聲音
+            isCountDownReset = true;
+            timerCountDown.Stop();
+            cdwatch_txt.Text = "00:00:00";
+            cdhour_cmb.SelectedIndex = -1;
+            cdmin_cmb.SelectedIndex = -1;
+            cdsc_cmb.SelectedIndex = -1;
         }
     }
 }

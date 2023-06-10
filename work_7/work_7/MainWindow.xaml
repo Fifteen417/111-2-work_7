@@ -26,13 +26,18 @@
             </TabItem>
             <TabItem Header="Stopwatch">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="watch_txt" HorizontalAlignment="Left" Height="147" Margin="38,10,0,0" TextWrapping="Wrap" Text="00:00:00:000" VerticalAlignment="Top" Width="720" FontSize="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
-                    <TextBox x:Name="watchlog_txt" HorizontalAlignment="Left" Height="207" Margin="38,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" FontSize="16"/>
-                    <Button x:Name="start_btn" Content="Start" HorizontalAlignment="Left" Height="57" Margin="337,0,0,0" VerticalAlignment="Center" Width="199" FontSize="24" FontWeight="Bold" Click="start_btn_click"/>
-                    <Button x:Name="pause_btn" Content="Pause" HorizontalAlignment="Left" Height="57" Margin="559,0,0,0" VerticalAlignment="Center" Width="199" RenderTransformOrigin="0.513,0.705" FontSize="24" FontWeight="Bold" VerticalContentAlignment="Center" Background="#FFFBF923" Click="pause_btn_click"/>
-                    <Button x:Name="note_btn" Content="Note" HorizontalAlignment="Left" Height="57" Margin="559,248,0,0" VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.513,0.705" FontSize="24" FontWeight="Bold" VerticalContentAlignment="Center" Click="note_btn_click"/>
-                    <Button x:Name="reset_btn" Content="Reset" HorizontalAlignment="Left" Height="57" Margin="337,248,0,0" VerticalAlignment="Top" Width="199" FontSize="24" FontWeight="Bold" Click="reset_btn_click"/>
-                    <Button x:Name="stop_btn" Content="Stop" HorizontalAlignment="Left" Height="57" Margin="337,323,0,0" VerticalAlignment="Top" Width="421" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Top" Background="#FFE54141" Foreground="White" Click="stop_btn_click"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="124*"/>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="633*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="watch_txt" HorizontalAlignment="Left" Height="147" Margin="38,10,0,0" TextWrapping="Wrap" Text="00:00:00:000" VerticalAlignment="Top" Width="720" FontSize="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="3"/>
+                    <TextBox x:Name="watchlog_txt" HorizontalAlignment="Left" Height="207" Margin="38,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" FontSize="16" Grid.ColumnSpan="3"/>
+                    <Button x:Name="start_btn" Content="Start" HorizontalAlignment="Left" Height="57" Margin="178,0,0,0" VerticalAlignment="Center" Width="199" FontSize="24" FontWeight="Bold" Click="start_btn_click" Grid.Column="2"/>
+                    <Button x:Name="pause_btn" Content="Pause" HorizontalAlignment="Left" Height="57" Margin="400,0,0,0" VerticalAlignment="Center" Width="199" RenderTransformOrigin="0.513,0.705" FontSize="24" FontWeight="Bold" VerticalContentAlignment="Center" Background="#FFFBF923" Click="pause_btn_click" Grid.Column="2"/>
+                    <Button x:Name="note_btn" Content="Note" HorizontalAlignment="Left" Height="57" Margin="400,248,0,0" VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.513,0.705" FontSize="24" FontWeight="Bold" VerticalContentAlignment="Center" Click="note_btn_click" Grid.Column="2"/>
+                    <Button x:Name="reset_btn" Content="Reset" HorizontalAlignment="Left" Height="57" Margin="178,248,0,0" VerticalAlignment="Top" Width="199" FontSize="24" FontWeight="Bold" Click="reset_btn_click" Grid.Column="2"/>
+                    <Button x:Name="stop_btn" Content="Stop" HorizontalAlignment="Left" Height="57" Margin="178,323,0,0" VerticalAlignment="Top" Width="421" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Top" Background="#FFE54141" Foreground="White" Click="stop_btn_click" Grid.Column="2"/>
                 </Grid>
             </TabItem>
             <TabItem HorizontalAlignment="Center" Height="20" Header="Countdown" VerticalAlignment="Top" Width="78" Margin="0,-1,0,0">
@@ -41,6 +46,15 @@
                         <ColumnDefinition Width="16*"/>
                         <ColumnDefinition Width="83*"/>
                     </Grid.ColumnDefinitions>
+                    <TextBox x:Name="cdwatch_txt" HorizontalAlignment="Left" Height="147" Margin="38,10,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Width="720" FontSize="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                    <ComboBox x:Name="cdhour_cmb" HorizontalAlignment="Left" Height="30" Margin="38,173,0,0" VerticalAlignment="Top" Width="81"/>
+                    <ComboBox x:Name="cdmin_cmb" HorizontalAlignment="Left" Height="30" Margin="124,173,0,0" VerticalAlignment="Top" Width="81" Grid.ColumnSpan="2"/>
+                    <ComboBox x:Name="cdsc_cmb" HorizontalAlignment="Left" Height="30" Margin="82,173,0,0" VerticalAlignment="Top" Width="81" Grid.Column="1"/>
+                    <Button Content="Button" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="57" Margin="37,219,0,0" VerticalAlignment="Top" Width="127"/>
+                    <Button x:Name="cdstart_btn" Content="Start" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="57" Margin="37,219,0,0" VerticalAlignment="Top" Width="168" FontSize="24" FontWeight="Bold" Click="cdstart_btn_click"/>
+                    <Button x:Name="cdpause_btn" Content="Pause" HorizontalAlignment="Left" Height="57" Margin="82,219,0,0" VerticalAlignment="Top" Width="168" Grid.Column="1" FontSize="24" FontWeight="Bold" Click="cdpause_btn_click"/>
+                    <Button x:Name="cdstop_btn" Content="Stop" HorizontalAlignment="Left" Height="57" Margin="255,219,0,0" VerticalAlignment="Top" Width="168" Grid.Column="1" FontSize="24" FontWeight="Bold" Click="cdstop_btn_click"/>
+                    <MediaElement x:Name="cdsound_me" Grid.Column="1" HorizontalAlignment="Left" Height="157" Margin="468,219,0,0" VerticalAlignment="Top" Width="157"/>
                 </Grid>
             </TabItem>
         </TabControl>
